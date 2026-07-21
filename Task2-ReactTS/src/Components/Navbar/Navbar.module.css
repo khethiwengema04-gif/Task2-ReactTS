@@ -1,0 +1,16 @@
+nav{
+    top:0;
+    height:100px;
+    width:100%;
+    background-color: rgb(212, 162, 101);
+    border:solid rgb(201, 137, 54);
+}
+/* .content{
+    max-width: 1200px;
+    margin:auto;
+    padding:20px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+
+} */
