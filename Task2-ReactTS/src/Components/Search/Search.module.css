@@ -1,8 +1,15 @@
 .search-container{
  width:100vw;
  height:60px;
- background-color: rgb(10, 10, 10);
+ background-color: rgb(245, 203, 140);
 }
+
+.searchbar-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .search-bar{
     width: 420px;
     height:40px;
@@ -25,5 +32,8 @@
 .SearchIcon{
     height: 30px;
     width: 30px;
+    padding:0 10px;
+    cursor: pointer;
+    color: rgb(20, 20, 20);
 
 }
