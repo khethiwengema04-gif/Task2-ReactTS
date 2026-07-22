@@ -1,17 +1,17 @@
-// import React from 'react'
-// import { ContentContainer } from './ContentContainer'
-// import style from './Search.module.css'
-// import { Searchbar } from './Searchbar'
+import React from 'react'
+//  import ContentContainer  from './ContentContainer'
+import style from './Search.module.css'
+import { Searchbar } from './Searchbar'
 
-// export const Search = () => {
-//   return (
-//     <div className={style['search-container']}>
-//         <ContentContainer className={style['searchbar-container']}>
-//             <Searchbar/>
+export const Search = () => {
+  return (
+    <div className={style['search-container']}>
+        {/* <ContentContainer className={style['searchbar-container']}> */}
+            <Searchbar/>
          
          
-//          </ContentContainer>
+         {/* </ContentContainer>  */}
     
-//     </div>
-//   )
-// }
+    </div>
+  )
+}
