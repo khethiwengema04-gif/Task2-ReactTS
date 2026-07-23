@@ -1,4 +1,4 @@
- import React  from 'react'
+// import React  from 'react'
 import styles from './Input.module.css'
 
 type TextInputProps = {
@@ -11,7 +11,7 @@ type TextInputProps = {
     name?: string
 }
 
-export const TextInput: React.FC<TextInputProps > = ({id, value, onChange, style, error }) => {
+export const TextInput: React.FC<TextInputProps > = ({id, value, onChange, style, label, error, name }) => {
   return (
     <div className={styles['input-container']}>
       <label className={styles['input-label']}></label>
