@@ -1,5 +1,3 @@
-import React from 'react'
-import style from './Form.module.css'
 
 export const Form = () => {
   return (
@@ -16,7 +14,7 @@ export const Form = () => {
           <textarea
             required
           ></textarea>
-          
+
           <label>Description:</label>
           <textarea
             required
