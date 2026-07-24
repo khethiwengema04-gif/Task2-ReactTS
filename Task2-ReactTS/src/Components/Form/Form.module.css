@@ -38,13 +38,14 @@ textarea{
     width: 20%;
     border: 2px solid rgb(212, 126, 27);
 }
-
-button{
-    width:5%;
-    
+textarea{
+    width: 20%;
+    border: 2px solid rgb(212, 126, 27);
 }
 
-.form button{
+
+ button{
+    width:5%;
     background:#f1356d;
     color:#fff;
     border: 0;
