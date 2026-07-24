@@ -66,7 +66,7 @@ setTags('')
 
        
 
-              <Button value={'ADD'} onClick={handleSubmit} />
+              <Button value={'Add+'} onClick={handleSubmit} />
 
 
 
