@@ -11,11 +11,15 @@ export const CardList: React.FC<CardListProps> = ({links}) => {
   return (
 
      <>
-     {
-      links.length ===0 && links.map((link)=>
-        <Card key={link.id} {...link}/>
-      )
-     }
+      <>
+      {links.length > 0 ? (
+        links.map((link) => (
+          <Card key={link.id} {...link} />
+        ))
+      ) : (
+        <p>No links added </p> 
+      )}
+    </>
 
      </>
   )

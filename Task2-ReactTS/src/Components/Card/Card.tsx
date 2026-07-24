@@ -3,9 +3,6 @@ import type { ItemLinks } from '../types/ItemLinks'
 import { Text } from '../Text/Text';
 import style from './Card.module.css'
 
-// interface CardProps{
-//     data: ItemLinks;
-// }
 
 export const Card: React.FC<ItemLinks> = ({title,url,description,tags}) => {
   return (

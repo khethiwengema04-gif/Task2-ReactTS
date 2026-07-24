@@ -1,7 +1,7 @@
 .input-container{
     display:flex;
     flex-direction: column;
-    gap:5px;
+    gap:20px;
 }
 
 .input{
@@ -16,15 +16,16 @@
 }
 
 .input-label{
-    color: rgb(240, 33, 33);
+    color: rgb(82, 41, 3);
     font-size: 12px;
 }
 
 .button{
-    width: 100%;
-    height: 40px;
+    width: 5%;
+    height: 30px;
     border-radius: 8px;
-    background-color: rgb(39, 76, 119);
+    background-color: rgb(199, 133, 10);
     border:none;
     cursor: pointer;
+    gap: 10px;
 }
