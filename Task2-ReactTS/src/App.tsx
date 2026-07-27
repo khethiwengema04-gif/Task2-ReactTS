@@ -10,13 +10,31 @@ import type { ItemLinks } from './Components/types/ItemLinks'
 
 
 function App() {
-  const [links, setLinks]=useState <ItemLinks[]>([])
+  const [links, setLinks]=useState <ItemLinks[]>(() => {
+    try {
+      const savedLinks= localStorage.getItem("links")
+      return savedLinks ? JSON.parse(savedLinks) : []
+    } catch (error) {
+      return []
+    }
+  })
+   
+
    const addlink=(newLink: ItemLinks) => { 
-    setLinks([...links,newLink])
+    setLinks((prevLinks)=> {
+      const currentArray= Array.isArray(prevLinks) ? prevLinks :[]
+      const updatedArray= [...currentArray, newLink]
+      localStorage.setItem("links", JSON.stringify(updatedArray))
+      return updatedArray
+    })
    }
+
+   
    const deleteFunction = (id: number)=>{
-    setLinks ((links.filter(links=>links.id!==id ))
-  )
+    setLinks ((links.filter(links=>links.id!==id )))
+    const updatedArray= (links.filter(links=>links.id!==id ))
+    localStorage.setItem("links", JSON.stringify(updatedArray))
+    return updatedArray
    }
 
    // function handleDelete(id) {

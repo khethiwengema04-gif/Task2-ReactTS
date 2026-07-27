@@ -10,6 +10,7 @@ interface ItemLinkProps{
     onDelete: (id:number)=> void
 }
 
+
 export const Card: React.FC<ItemLinkProps> = ({onDelete, itemLinks}) => {
   return (
     <div>
@@ -28,4 +29,6 @@ export const Card: React.FC<ItemLinkProps> = ({onDelete, itemLinks}) => {
     </div>
   )
 }
+
+{/* <button className= {style.button} onClick={() => onEdit(itemLinks.id)}></button> */}
 
