@@ -5,30 +5,31 @@ import style from './Card.module.css'
 
 
 
-interface ItemLinkProps{
+interface ItemLinkProps {
     itemLinks: ItemLinks;
-    onDelete: (id:number)=> void
+    onDelete: (id: number) => void
+    onEdit: (id: number) => void
 }
 
 
-export const Card: React.FC<ItemLinkProps> = ({onDelete, itemLinks}) => {
-  return (
-    <div>
-        <Text varient={'h1'}>{itemLinks.title}</Text>
-        <Text varient={'h2'}>{itemLinks.url}</Text>
-        <Text varient={'p'}>{itemLinks.description}</Text>
-        <Text varient={'h3'}>{itemLinks.tags}</Text>
+export const Card: React.FC<ItemLinkProps> = ({ onDelete, itemLinks, onEdit }) => {
+    return (
+        <div>
+            <Text varient={'h1'}>{itemLinks.title}</Text>
+            <Text varient={'h2'}>{itemLinks.url}</Text>
+            <Text varient={'p'}>{itemLinks.description}</Text>
+            <Text varient={'h3'}>{itemLinks.tags}</Text>
 
-        <button className={style.button} onClick={() => onDelete(itemLinks.id)}>
-            Delete
-        </button>
+            <button className={style.button} onClick={() => onDelete(itemLinks.id)}>
+                Delete
+            </button>
 
-        <button className={style.button} >
-            Edit
-        </button>
-    </div>
-  )
+            <button className={style.button} onClick={() => onEdit(itemLinks.id)} >
+                Edit
+            </button>
+        </div>
+    )
 }
 
-{/* <button className= {style.button} onClick={() => onEdit(itemLinks.id)}></button> */}
+{/* <button className= {style.button} onClick={() => onEdit(itemLinks.id)}></button> */ }
 

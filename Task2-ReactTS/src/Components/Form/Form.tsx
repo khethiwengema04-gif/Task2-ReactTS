@@ -5,71 +5,79 @@ import { useState } from 'react'
 import { TextInput } from '../Inputs/TextInput'
 import { Button } from '../Inputs/Button'
 
-type FormProps= { 
-    onsave:(link:ItemLinks)=> void
+type FormProps = {
+    onsave: (link: ItemLinks) => void
+    onEdit: (link: ItemLinks) => void
+    editLink?: ItemLinks | null
 }
 
-export const Form: React.FC<FormProps> = ({onsave}) => {
+export const Form: React.FC<FormProps> = ({ onsave, onEdit, editLink }) => {
 
-    const [title,setTitle]= useState('')
-    const [url,setUrl]= useState('')
-    const [description,setDescription]= useState('')
-    const [tags,setTags]= useState('')
+    const [title, setTitle] = useState(editLink?.title ?? '')
+    const [url, setUrl] = useState(editLink?.url ?? '')
+    const [description, setDescription] = useState(editLink?.description ?? '')
+    const [tags, setTags] = useState(editLink?.tags ?? '')
 
-    const handleSubmit=() => {
-        onsave({id:Date.now(),
-            title,
-            url,
-            description,
-            tags
-        })
-        
-         
-setTitle('')
-setUrl('')
-setDescription('')
-setTags('')
+    const handleSubmit = () => {
+        if (editLink) {
+            onEdit({ ...editLink, title, url, description, tags })
+        }
+        else {
+            onsave({
+                id: Date.now(),
+                title,
+                url,
+                description,
+                tags
+            })
+        }
+
+
+        setTitle('')
+        setUrl('')
+        setDescription('')
+        setTags('')
 
     }
-    const handle_title =( 
+    const handle_title = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
         setTitle(event.target.value)
     }
-     const handle_url =( 
+    const handle_url = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
         setUrl(event.target.value)
     }
-     const handle_description =( 
+    const handle_description = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
         setDescription(event.target.value)
     }
-     const handle_tag =( 
+    const handle_tag = (
         event: React.ChangeEvent<HTMLInputElement>,
     ) => {
         setTags(event.target.value)
     }
 
-  return (
-    <div className="Form">
-      
-        <h2>Add Link</h2>
-       
-       
-            <TextInput  label="Title" value={title} onChange={handle_title}/>
-             <TextInput  label="URL" value={url} onChange={handle_url}/>
-              <TextInput  label="Discription" value={description} onChange={handle_description}/>
-               <TextInput  label="Tags" value={tags} onChange={ handle_tag}/>
-                
+    return (
+        <div className="Form">
 
-       
+            <h2>Add Link</h2>
 
-              <Button value={'Add+'} onClick={handleSubmit} />
+
+            <TextInput label="Title" value={title} onChange={handle_title} />
+            <TextInput label="URL" value={url} onChange={handle_url} />
+            <TextInput label="Discription" value={description} onChange={handle_description} />
+            <TextInput label="Tags" value={tags} onChange={handle_tag} />
 
 
 
-    </div>
-  )
+
+            <Button value={'Add+'} onClick={handleSubmit} />
+
+
+
+        </div>
+    )
 }
