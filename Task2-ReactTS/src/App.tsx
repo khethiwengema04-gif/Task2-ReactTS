@@ -1,6 +1,6 @@
 import './App.css'
 import Navbar from './Components/Navbar/Navbar'
-import {Text} from './Components/Text/Text'
+// import {Text} from './Components/Text/Text'
 import { Search } from './Components/Search/Search'
 import { Form } from './Components/Form/Form'
 import { CardList } from './Components/Card/CardList'
@@ -14,15 +14,27 @@ function App() {
    const addlink=(newLink: ItemLinks) => { 
     setLinks([...links,newLink])
    }
- console.log(links);
-  return (
+   const deleteFunction = (id: number)=>{
+    setLinks ((links.filter(links=>links.id!==id ))
+  )
+   }
+
+   // function handleDelete(id) {
+   //   const NewList = LinkList.filter((t) => !== id)
+   //   setLinkList([...NewList]);
+   // }
+
+
+
+   console.log(links);
+   return (
 
     <div id='app-container'>
       <div id='scrollable'>
         <Navbar/>
         <Search/>
         <Form onsave={addlink}/>
-        <CardList links={links} />
+        <CardList links={links} onDelete={deleteFunction} />
         
        
       </div>  
@@ -32,3 +44,5 @@ function App() {
 }
 
 export default App
+
+
