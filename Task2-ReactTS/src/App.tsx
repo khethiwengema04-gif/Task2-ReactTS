@@ -19,6 +19,15 @@ function App() {
     }
   })
 
+  const [searchQuery, setSearchQuery] = useState("")
+
+  const filteredLinks = links.filter(link =>
+    link.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    link.url.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    link.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    link.tags.toLowerCase().includes(searchQuery.toLowerCase())
+  )
+
 
   const addlink = (newLink: ItemLinks) => {
     setLinks((prevLinks) => {
@@ -59,9 +68,9 @@ function App() {
     <div id='app-container'>
       <div id='scrollable'>
         <Navbar />
-        <Search />
+        <Search onSearch={setSearchQuery} />
         <Form onsave={addlink} key={editLink?.id ?? 'add'} onEdit={updateLink} editLink={editLink} />
-        <CardList links={links} onDelete={deleteFunction} onEdit={findEditLink} />
+        <CardList links={filteredLinks} onDelete={deleteFunction} onEdit={findEditLink} />
 
 
       </div>
